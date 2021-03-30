@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Django Site</title>
+</head>
+<body>
+	<div style="background:#73bb73"><h1 style="color=#fff">Hello World</h1></div>
+	<div>
+	<ul>
+		{% for lead in leads %}
+		<li>{{ lead }}</li>
+		{% endfor %}
+	</ul>
+	</div>
+</body>
+</html>
