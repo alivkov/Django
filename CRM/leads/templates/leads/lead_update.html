@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<a href="{% url 'leads:lead-detail' lead.pk %}">Go back to details></a>
+	</hr><br>
+	<h1>Update lead {{ lead.first_name }} {{ lead.last_name }}</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Submit</button>
+	</form>
+</body>
+</html>
+

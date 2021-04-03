@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+.lead{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 6px;
+	padding-right: 10px;
+	background-color: #f6f6f6;
+	width: 100%;
+}
+	</style>
+</head>
+<body>
+	<a href="{% url 'leads:lead-list' %}">Go back to leads</a>
+	</hr><br>
+	<h1>These are the details of {{ lead.first_name }}</h1>
+	<p>They are {{ lead.age }} years old.</p>	
+	<p>Agent: {{ lead.agent }}</p>
+	<hr />
+	<a href="{% url 'leads:lead-update' lead.pk %}">Update</a>
+	<a href="{% url 'leads:lead-delete' lead.pk %}">Delete</a>
+</body>
+</html>
