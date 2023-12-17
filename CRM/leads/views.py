@@ -2,7 +2,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse
 from django.views import generic
-from .models import Agent, Lead
+from .models import Agent, Machine, Inspection
 from .forms import LeadModelForm
 
 class LandingPageView(generic.TemplateView):
@@ -13,7 +13,7 @@ class LandingPageView(generic.TemplateView):
 
 class LeadListView(generic.ListView):
     template_name = "leads/lead_list.html"
-    queryset= Lead.objects.all()
+    queryset= Machine.objects.all()
 
 # def lead_list(request):
     # leads = Lead.objects.all()
@@ -24,7 +24,7 @@ class LeadListView(generic.ListView):
 
 class LeadDetailView(generic.DetailView):
     template_name="leads/lead_detail.html"
-    queryset= Lead.objects.all()
+    queryset= Machine.objects.all()
     context_object_name="lead"
 
 
@@ -78,7 +78,7 @@ class LeadCreateView(generic.CreateView):
 class LeadUpdateView(generic.UpdateView):
     template_name="leads/lead_update.html"
     form_class=LeadModelForm
-    queryset= Lead.objects.all()
+    queryset= Machine.objects.all()
 
     def get_success_url(self):
         return reverse("leads:lead-list")
@@ -99,7 +99,7 @@ class LeadUpdateView(generic.UpdateView):
 
 class LeadDeleteView(generic.DeleteView):
     template_name="leads/lead_delete.html"
-    queryset= Lead.objects.all()
+    queryset= Machine.objects.all()
 
     def get_success_url(self):
         return reverse("leads:lead-list")

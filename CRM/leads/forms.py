@@ -1,18 +1,22 @@
 from django import forms
-from .models import Lead
+from .models import Machine
+
+
+# Create the form class.
 
 class LeadModelForm(forms.ModelForm):
     class Meta:
-        model = Lead
+        model = Machine
         fields = [
-            'first_name',
-            'last_name',
-            'age',
+            'machine_id',
+            'machine_name',
+            'date_of_first_inspection',
             'agent',
             ]
 
 
 class LeadForm(forms.Form):
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    age = forms.IntegerField(min_value=0)
+    machine_id = forms.CharField()
+    machine_name = forms.CharField()
+    agent = forms.CharField()
+  
